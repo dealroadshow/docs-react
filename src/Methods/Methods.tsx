@@ -2,17 +2,17 @@ import React, { Component } from "react";
 import { withStyles, Theme, WithStyles } from "@material-ui/core/styles";
 import ExpansionPanel from "@material-ui/core/ExpansionPanel";
 import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
-import _ from "lodash";
 import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
 import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import Params from "../Params/Params";
+import Headers from "../Headers/Headers";
 import ContentDescriptor from "../ContentDescriptor/ContentDescriptor";
 import ExamplePairings from "../ExamplePairings/ExamplePairings";
 import Errors from "../Errors/Errors";
 import {
   OpenrpcDocument,
-  MethodObject,
+  MethodObject as DefaultMethodObject,
   ContentDescriptorObject,
   ErrorObject,
   ExamplePairingObject,
@@ -21,6 +21,11 @@ import {
 import Links from "../Links/Links";
 import Tags from "../Tags/Tags";
 import MarkdownDescription from "../MarkdownDescription/MarkdownDescription";
+
+// tslint:disable-next-line:interface-name
+interface MethodObject extends DefaultMethodObject {
+  headers: DefaultMethodObject["params"];
+}
 
 const styles = (theme: Theme) => ({
   description: {
@@ -63,13 +68,15 @@ class Methods extends Component<IProps> {
     if (!schema) {
       return null;
     }
-    const methods: MethodObject[] = schema.methods;
+    const methods: MethodObject[] = schema.methods as MethodObject[];
     const methodsExist = methods && methods.length > 0;
     if (!schema || !schema.methods || !methodsExist) { return null; }
+
     return (
       <div className={classes.root}>
         <Typography variant="h3" gutterBottom>Methods</Typography>
-        {schema.methods.map((method, i) => (
+        {/*// @ts-ignore*/}
+        {schema.methods.map((method: MethodObject, i) => (
           <ExpansionPanel
             id={method.name}
             key={i + method.name}
@@ -103,6 +110,16 @@ class Methods extends Component<IProps> {
                   source={method.description}
                   className={classes.description}
                 />
+              </ExpansionPanelDetails>
+            }
+            { method.headers && method.headers.length > 0 &&
+              <ExpansionPanelDetails key="headers-title">
+                <Typography variant="h5">Headers</Typography>
+              </ExpansionPanelDetails>
+            }
+            { method.headers &&
+              <ExpansionPanelDetails key="headers">
+                <Headers headers={ method.headers as ContentDescriptorObject[] } uiSchema={ uiSchema } />
               </ExpansionPanelDetails>
             }
             {method.params && method.params.length > 0 &&
