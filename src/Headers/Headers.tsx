@@ -39,7 +39,7 @@ class Headers extends Component<IProps> {
       <Table className={classes.table}>
         <TableHead>
           <TableRow>
-            <TableCell key={1} className={classes.tableStart}>Parameter Name</TableCell>
+            <TableCell key={1} className={classes.tableStart}>Header Name</TableCell>
             <TableCell key={2} align="right">Summary</TableCell>
             <TableCell key={3} align="right" className={classes.tableEnd}>Required</TableCell>
           </TableRow>

@@ -71,7 +71,7 @@ var Headers = /** @class */ (function (_super) {
         return (react_1.default.createElement(Table_1.default, { className: classes.table },
             react_1.default.createElement(TableHead_1.default, null,
                 react_1.default.createElement(TableRow_1.default, null,
-                    react_1.default.createElement(TableCell_1.default, { key: 1, className: classes.tableStart }, "Parameter Name"),
+                    react_1.default.createElement(TableCell_1.default, { key: 1, className: classes.tableStart }, "Header Name"),
                     react_1.default.createElement(TableCell_1.default, { key: 2, align: "right" }, "Summary"),
                     react_1.default.createElement(TableCell_1.default, { key: 3, align: "right", className: classes.tableEnd }, "Required"))),
             react_1.default.createElement(TableBody_1.default, null,
