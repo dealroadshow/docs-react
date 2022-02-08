@@ -15,7 +15,7 @@ const styles = (theme: Theme) => ({
   },
   description: {
     color: theme.palette.text.primary,
-    padding: `${theme.spacing(2)}px 0 ${theme.spacing(2)}px 0`,
+    padding: `${ theme.spacing(2) }px 0 ${ theme.spacing(2) }px 0`,
   },
 });
 
@@ -30,32 +30,49 @@ class Info extends Component<IProps> {
     const info = schema.info;
     return (
       <>
-        {info.title && <Typography variant="h2" gutterBottom>{info.title}</Typography>}
-        {info.version && <Chip label={info.version}/>}
-        {info.license &&
+        { info.title && <Typography variant="h2" gutterBottom>{ info.title }</Typography> }
+        { info.version && <Chip label={ info.version } /> }
+        { info.license &&
           info.license.name &&
           info.license.url &&
           <Chip
-            component={"a" as any}
-            {...{ href: info.license.url }}
-            className={classes.chip}
+            component={ "a" as any }
+            { ...{ href: info.license.url } }
+            className={ classes.chip }
             clickable
             color="primary"
-            label={info.license.name} />}
-        {info.description && <ReactMarkdown className={classes.description} source={info.description}/>}
-        {info.termsOfService &&
-          <Button className={classes.button} variant="contained" href={info.termsOfService}>Terms Of Service</Button>}
-        {info.contact &&
+            label={ info.license.name } /> }
+        { info.description && <ReactMarkdown className={ classes.description } source={ info.description } /> }
+        { info.termsOfService &&
+          <Button
+            className={ classes.button }
+            variant="contained"
+            href={ info.termsOfService }
+            target="_blank"
+          >
+            Terms Of Service
+          </Button>
+        }
+        { info.contact &&
           info.contact.url &&
           info.contact.name &&
           <Button
-            className={classes.button} variant="contained" href={info.contact.url}>Contact {info.contact.name}</Button>}
-        {info.contact &&
+            className={ classes.button }
+            variant="contained"
+            href={ info.contact.url }
+            target="_blank"
+          >
+            Contact { info.contact.name }
+          </Button>
+        }
+        { info.contact &&
           info.contact.email &&
-            <Button
-              className={classes.button}
-              variant="contained"
-              href={`mailto:${info.contact.email}`}>Email {info.contact.name}</Button>}
+          <Button
+            className={ classes.button }
+            variant="contained"
+            href={ `mailto:${ info.contact.email }` }
+            target="_blank"
+          >Email { info.contact.name }</Button> }
       </>
     );
   }

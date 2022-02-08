@@ -84,16 +84,16 @@ var Info = /** @class */ (function (_super) {
                 react_1.default.createElement(Chip_1.default, __assign({ component: "a" }, { href: info.license.url }, { className: classes.chip, clickable: true, color: "primary", label: info.license.name })),
             info.description && react_1.default.createElement(react_markdown_1.default, { className: classes.description, source: info.description }),
             info.termsOfService &&
-                react_1.default.createElement(Button_1.default, { className: classes.button, variant: "contained", href: info.termsOfService }, "Terms Of Service"),
+                react_1.default.createElement(Button_1.default, { className: classes.button, variant: "contained", href: info.termsOfService, target: "_blank" }, "Terms Of Service"),
             info.contact &&
                 info.contact.url &&
                 info.contact.name &&
-                react_1.default.createElement(Button_1.default, { className: classes.button, variant: "contained", href: info.contact.url },
+                react_1.default.createElement(Button_1.default, { className: classes.button, variant: "contained", href: info.contact.url, target: "_blank" },
                     "Contact ",
                     info.contact.name),
             info.contact &&
                 info.contact.email &&
-                react_1.default.createElement(Button_1.default, { className: classes.button, variant: "contained", href: "mailto:" + info.contact.email },
+                react_1.default.createElement(Button_1.default, { className: classes.button, variant: "contained", href: "mailto:" + info.contact.email, target: "_blank" },
                     "Email ",
                     info.contact.name)));
     };
