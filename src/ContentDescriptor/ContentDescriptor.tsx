@@ -54,7 +54,11 @@ class ContentDescriptor extends Component<IProps> {
             <Typography className={classes.heading}>{contentDescriptor.name}</Typography>
             <Typography className={classes.secondaryHeading}>{contentDescriptor.summary}</Typography>
             {hideRequired ? null : <Typography className={classes.secondaryHeading}>
-              {contentDescriptor.required ? "true" : "false"}
+              {
+                typeof contentDescriptor.required === "string"
+                  ? contentDescriptor.required
+                  : contentDescriptor.required ? "true" : "false"
+              }
             </Typography>}
           </div>
         </ExpansionPanelSummary>

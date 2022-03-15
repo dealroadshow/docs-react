@@ -78,7 +78,9 @@ var ContentDescriptor = /** @class */ (function (_super) {
                 react_1.default.createElement("div", { style: { display: "flex", justifyContent: "space-between", width: "100%", height: "100%", alignItems: "center" } },
                     react_1.default.createElement(core_1.Typography, { className: classes.heading }, contentDescriptor.name),
                     react_1.default.createElement(core_1.Typography, { className: classes.secondaryHeading }, contentDescriptor.summary),
-                    hideRequired ? null : react_1.default.createElement(core_1.Typography, { className: classes.secondaryHeading }, contentDescriptor.required ? "true" : "false"))),
+                    hideRequired ? null : react_1.default.createElement(core_1.Typography, { className: classes.secondaryHeading }, typeof contentDescriptor.required === "string"
+                        ? contentDescriptor.required
+                        : contentDescriptor.required ? "true" : "false"))),
             react_1.default.createElement(ExpansionPanelDetails_1.default, { style: { display: "block", overflowX: "auto" } },
                 react_1.default.createElement(react_1.default.Fragment, null,
                     contentDescriptor.description &&
