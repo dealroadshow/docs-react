@@ -60,7 +60,7 @@ class ExamplePairing extends Component<IProps, {}> {
           <CardHeader title="Result"></CardHeader>
           <Card>
             <CardContent>
-              {examplePairing.result && <ReactJson src={{
+              {examplePairing.result && <ReactJson name={false} src={{
                 id: 1,
                 jsonrpc: "2.0",
                 result: (examplePairing.result as ExampleObject).value,
