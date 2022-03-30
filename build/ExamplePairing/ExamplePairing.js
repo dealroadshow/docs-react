@@ -86,7 +86,7 @@ var ExamplePairing = /** @class */ (function (_super) {
             react_1.default.createElement(Grid_1.default, { item: true, xs: 12, sm: 6 },
                 react_1.default.createElement(core_1.CardHeader, { title: "Result" }),
                 react_1.default.createElement(core_1.Card, null,
-                    react_1.default.createElement(core_1.CardContent, null, examplePairing.result && react_1.default.createElement(react_json_view_1.default, __assign({ src: {
+                    react_1.default.createElement(core_1.CardContent, null, examplePairing.result && react_1.default.createElement(react_json_view_1.default, __assign({ name: false, src: {
                             id: 1,
                             jsonrpc: "2.0",
                             result: examplePairing.result.value,
