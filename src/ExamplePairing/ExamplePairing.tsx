@@ -32,12 +32,7 @@ class ExamplePairing extends Component<IProps, {}> {
     if (_.isUndefined(methodName)) {
       return null;
     }
-    const params = paramStructure === "by-name"
-      ? (examplePairing.params as ExampleObject[]).reduce(((memo, p) => {
-        memo[p.name] = p.value;
-        return memo;
-      }), {} as any)
-      : (examplePairing.params as ExampleObject[]).map(((p) => p.value));
+    const params = examplePairing.params as ExampleObject[];
 
     return (
       <Grid container spacing={10}>

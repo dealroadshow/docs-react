@@ -70,12 +70,7 @@ var ExamplePairing = /** @class */ (function (_super) {
         if (lodash_1.default.isUndefined(methodName)) {
             return null;
         }
-        var params = paramStructure === "by-name"
-            ? examplePairing.params.reduce((function (memo, p) {
-                memo[p.name] = p.value;
-                return memo;
-            }), {})
-            : examplePairing.params.map((function (p) { return p.value; }));
+        var params = examplePairing.params;
         return (react_1.default.createElement(Grid_1.default, { container: true, spacing: 10 },
             react_1.default.createElement(Grid_1.default, { item: true, xs: 12 },
                 react_1.default.createElement(MarkdownDescription_1.default, { uiSchema: uiSchema, source: examplePairing.description, className: classes.description })),
