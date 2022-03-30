@@ -69,7 +69,7 @@ class Servers extends Component<IProps> {
                       }
                       {server.variables &&
                         <Typography variant="h6" gutterBottom className={classes.paramsMargin}>Variables</Typography>}
-                      {server.variables && <ReactJson src={server.variables} {...reactJsonOptions} />}
+                      {server.variables && <ReactJson name={false} src={server.variables} {...reactJsonOptions} />}
                     </ExpansionPanelDetails>
                   </ExpansionPanel>
                 </div>

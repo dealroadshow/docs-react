@@ -51,7 +51,7 @@ class Errors extends Component<IProps> {
                   <TableCell>{row.message}</TableCell>
                   <TableCell className={classes.code}>
                     {_.isObject(row.data) ?
-                      <ReactJson src={row.data} {...this.props.reactJsonOptions} enableClipboard={false} /> : row.data}
+                      <ReactJson name={false} src={row.data} {...this.props.reactJsonOptions} enableClipboard={false} /> : row.data}
                   </TableCell>
                 </TableRow>
               ))}

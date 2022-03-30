@@ -98,7 +98,7 @@ var Servers = /** @class */ (function (_super) {
                                     react_1.default.createElement(MarkdownDescription_1.default, { uiSchema: uiSchema, source: server.description, className: classes.description }),
                                 server.variables &&
                                     react_1.default.createElement(core_1.Typography, { variant: "h6", gutterBottom: true, className: classes.paramsMargin }, "Variables"),
-                                server.variables && react_1.default.createElement(react_json_view_1.default, __assign({ src: server.variables }, reactJsonOptions)))))); }))))));
+                                server.variables && react_1.default.createElement(react_json_view_1.default, __assign({ name: false, src: server.variables }, reactJsonOptions)))))); }))))));
     };
     return Servers;
 }(react_1.Component));

@@ -96,7 +96,7 @@ var Links = /** @class */ (function (_super) {
                         react_1.default.createElement(core_1.ExpansionPanelDetails, { style: { display: "block" }, key: "links-body" },
                             link.description && react_1.default.createElement(react_markdown_1.default, { source: link.description, className: classes.description }),
                             link.params && react_1.default.createElement(Typography_1.default, { variant: "h6", gutterBottom: true }, "Params"),
-                            link.params && react_1.default.createElement(react_json_view_1.default, __assign({ src: link.params }, reactJsonOptions)),
+                            link.params && react_1.default.createElement(react_json_view_1.default, __assign({ name: false, src: link.params }, reactJsonOptions)),
                             link.server &&
                                 react_1.default.createElement(Typography_1.default, { variant: "h6", gutterBottom: true, className: classes.paramsMargin }, "Server"),
                             link.server && react_1.default.createElement(Servers_1.default, { servers: [link.server], noTitle: true, reactJsonOptions: reactJsonOptions }))))); })))));

@@ -63,7 +63,7 @@ class Links extends Component<IProps> {
                   <ExpansionPanelDetails style={{ display: "block" }} key="links-body">
                     {link.description && <ReactMarkdown source={link.description} className={classes.description} />}
                     {link.params && <Typography variant="h6" gutterBottom>Params</Typography>}
-                    {link.params && <ReactJson src={link.params} {...reactJsonOptions} />}
+                    {link.params && <ReactJson name={false} src={link.params} {...reactJsonOptions} />}
                     {link.server &&
                       <Typography variant="h6" gutterBottom className={classes.paramsMargin}>Server</Typography>}
                     {link.server && <Servers

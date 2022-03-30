@@ -86,7 +86,7 @@ var Errors = /** @class */ (function (_super) {
                         react_1.default.createElement(TableCell_1.default, { component: "th", scope: "row" }, row.code),
                         react_1.default.createElement(TableCell_1.default, null, row.message),
                         react_1.default.createElement(TableCell_1.default, { className: classes.code }, lodash_1.default.isObject(row.data) ?
-                            react_1.default.createElement(react_json_view_1.default, __assign({ src: row.data }, _this.props.reactJsonOptions, { enableClipboard: false })) : row.data))); }))))));
+                            react_1.default.createElement(react_json_view_1.default, __assign({ name: false, src: row.data }, _this.props.reactJsonOptions, { enableClipboard: false })) : row.data))); }))))));
     };
     return Errors;
 }(react_1.Component));
