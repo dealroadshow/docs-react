@@ -33,6 +33,7 @@ class ExamplePairing extends Component<IProps, {}> {
       return null;
     }
     const params = examplePairing.params as ExampleObject[];
+    const headers = examplePairing.headers as ExampleObject[];
 
     return (
       <Grid container spacing={10}>
@@ -47,11 +48,12 @@ class ExamplePairing extends Component<IProps, {}> {
           <Card>
             <CardHeader title="Request"></CardHeader>
             <CardContent>
-              {examplePairing.params && <ReactJson name={false} src={{
+              {params || headers && <ReactJson name={false} src={{
                 id: 1,
                 jsonrpc: "2.0",
                 method: methodName,
-                params,
+                ...!!params && {params},
+                ...!!headers && {headers},
               }} {...this.props.reactJsonOptions} />}
             </CardContent>
           </Card>

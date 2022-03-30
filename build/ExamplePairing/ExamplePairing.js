@@ -71,18 +71,14 @@ var ExamplePairing = /** @class */ (function (_super) {
             return null;
         }
         var params = examplePairing.params;
+        var headers = examplePairing.headers;
         return (react_1.default.createElement(Grid_1.default, { container: true, spacing: 10 },
             react_1.default.createElement(Grid_1.default, { item: true, xs: 12 },
                 react_1.default.createElement(MarkdownDescription_1.default, { uiSchema: uiSchema, source: examplePairing.description, className: classes.description })),
             react_1.default.createElement(Grid_1.default, { item: true, xs: 12, sm: 6 },
                 react_1.default.createElement(core_1.Card, null,
                     react_1.default.createElement(core_1.CardHeader, { title: "Request" }),
-                    react_1.default.createElement(core_1.CardContent, null, examplePairing.params && react_1.default.createElement(react_json_view_1.default, __assign({ name: false, src: {
-                            id: 1,
-                            jsonrpc: "2.0",
-                            method: methodName,
-                            params: params,
-                        } }, this.props.reactJsonOptions))))),
+                    react_1.default.createElement(core_1.CardContent, null, params || headers && react_1.default.createElement(react_json_view_1.default, __assign({ name: false, src: __assign(__assign({ id: 1, jsonrpc: "2.0", method: methodName }, !!params && { params: params }), !!headers && { headers: headers }) }, this.props.reactJsonOptions))))),
             react_1.default.createElement(Grid_1.default, { item: true, xs: 12, sm: 6 },
                 react_1.default.createElement(core_1.CardHeader, { title: "Result" }),
                 react_1.default.createElement(core_1.Card, null,
