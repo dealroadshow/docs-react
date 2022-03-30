@@ -33,7 +33,9 @@ class ExamplePairing extends Component<IProps, {}> {
       return null;
     }
     const params = examplePairing.params as ExampleObject[];
-    const headers = examplePairing.headers as ExampleObject[];
+    const requestHeaders = examplePairing.requestHeaders as ExampleObject[];
+    const result = examplePairing.result as ExampleObject;
+    const responseHeaders = examplePairing.responseHeaders as ExampleObject[];
 
     return (
       <Grid container spacing={10}>
@@ -48,12 +50,12 @@ class ExamplePairing extends Component<IProps, {}> {
           <Card>
             <CardHeader title="Request"></CardHeader>
             <CardContent>
-              {params || headers && <ReactJson name={false} src={{
+              {(params || requestHeaders) && <ReactJson name={false} src={{
                 id: 1,
                 jsonrpc: "2.0",
                 method: methodName,
+                ...!!requestHeaders && { headers: requestHeaders },
                 ...!!params && {params},
-                ...!!headers && {headers},
               }} {...this.props.reactJsonOptions} />}
             </CardContent>
           </Card>
@@ -62,10 +64,11 @@ class ExamplePairing extends Component<IProps, {}> {
           <CardHeader title="Result"></CardHeader>
           <Card>
             <CardContent>
-              {examplePairing.result && <ReactJson name={false} src={{
+              {(result || responseHeaders) && <ReactJson name={false} src={{
                 id: 1,
                 jsonrpc: "2.0",
-                result: (examplePairing.result as ExampleObject).value,
+                ...!!responseHeaders && { headers: responseHeaders },
+                ...!!result && {result: result.value},
               }} {...this.props.reactJsonOptions} />}
             </CardContent>
           </Card>
